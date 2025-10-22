@@ -38,9 +38,10 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AMBITIOUS_FIELD_047833700 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "./frontend/dist"  # Deploy the built artifacts
+          app_location: "./frontend"       # App root
           api_location: ""
-          skip_app_build: true              # We already ran `npm run build`
+          output_location: "dist"          # Built folder relative to app root
+          skip_app_build: true              # Use already-built artifacts
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
