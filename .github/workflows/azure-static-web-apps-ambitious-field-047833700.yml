@@ -14,48 +14,42 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
-    steps:
-      # Checkout the repo
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-          lfs: false
 
-      # Setup Node.js 20 (required for Vite)
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
 
-      # Install dependencies
       - name: Install Dependencies
-        working-directory: ./frontend
+        working-directory: frontend
         run: npm install
 
-      # Build the Vite app
       - name: Build App
-        working-directory: ./frontend
+        working-directory: frontend
         run: npm run build
 
-      # Deploy to Azure Static Web Apps
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AMBITIOUS_FIELD_047833700 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "./frontend"          # App source code path
-          api_location: ""                    # Api source code path - optional
-          output_location: "frontend/dist"    # Built app folder (Vite outputs to 'dist')
-  
+          app_location: "frontend"          # <-- removed leading ./
+          api_location: ""                  
+          output_location: "frontend/dist"  # Vite output folder
+
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Close Pull Request Job
     steps:
       - name: Close Pull Request
-        id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AMBITIOUS_FIELD_047833700 }}
+          app_location: "frontend"          # Required even for close
           action: "close"
