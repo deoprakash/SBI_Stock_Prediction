@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'build', // Output folder changed from 'dist' to 'build'
+    outDir: 'dist', // Output folder for Azure Static Web Apps
   },
 })
