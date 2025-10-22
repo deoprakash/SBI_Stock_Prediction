@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+myenv/
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Model files (optional - uncomment if you don't want to track models)
+# *.h5
+# *.pkl
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+
+# Frontend - Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Frontend - Build
+frontend/dist/
+frontend/build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*_COMPLETE.md
+*_README.md
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
