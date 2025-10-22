@@ -104,7 +104,8 @@ const StockChart = () => {
       setLoading(false);
     } catch (err) {
       console.error('Error fetching data:', err);
-      setError('Failed to fetch data. Make sure the backend server is running on http://127.0.0.1:5000');
+      const errorMsg = err.response?.data?.error || err.message || 'Unknown error';
+      setError(`Failed to fetch data from ${API_URL}: ${errorMsg}`);
       setLoading(false);
     }
   };
