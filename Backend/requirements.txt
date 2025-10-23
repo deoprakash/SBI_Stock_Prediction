@@ -1,9 +1,9 @@
+flask
+flask-cors
+gunicorn
 yfinance
 pandas
 numpy
 matplotlib
 scikit-learn
 tensorflow
-flask
-flask-cors
-gunicorn
