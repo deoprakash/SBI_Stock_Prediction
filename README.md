@@ -475,5 +475,6 @@ This project is licensed under the Apache License 2.0. See [LICENSE](https://git
 ## 📬 Contact
 
 - Author: [@deoprakash](https://github.com/deoprakash)
+- LinkedIn: [Deo Prakash](https://www.linkedin.com/in/deo-prakash-152265225/)
 - Email: deoprakash364@gmail.com
 
