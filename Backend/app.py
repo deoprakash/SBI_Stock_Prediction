@@ -127,3 +127,5 @@ if __name__ == "__main__":
 
 
 #893.26
+# Expose a WSGI-compatible name for Gunicorn (some configs expect `application`)
+application = app
